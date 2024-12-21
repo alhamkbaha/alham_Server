@@ -1,7 +1,7 @@
 {
   "name": "alham_Server",
   "version": "1.0.0",
-  "main": "serve.js",
+  "main": "server.js",
   "dependencies": {
     "accepts": "^1.3.8",
     "anymatch": "^3.1.3",

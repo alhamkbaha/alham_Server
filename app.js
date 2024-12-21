@@ -13,6 +13,10 @@ mongoose.connection.on("connected", () => {
   console.log("mongo connected");
 });
 
+app.get("/user", (res, req) => {
+  res.status(200).json({ live: true })
+})
+
 app.post("/pasname", (req, res) => {
   const { password, name } = req.body
   if (password === "jijijimy" && name === "lora")
@@ -30,12 +34,12 @@ app.post("/pasname", (req, res) => {
 
 app.post("/sum", (req, res) => {
   const { x, y } = req.body
-  if(!x && !y) {
+  if (!x && !y) {
     res.status(200).json({
-    message:"please enter x and y"
-  })
-  return;
-}
+      message: "please enter x and y"
+    })
+    return;
+  }
   res.status(200).json({ total: x + y })
 
 })
@@ -53,6 +57,6 @@ app.post("/getAvg", (req, res) => {
   console.log(sum);
 })
 
-app.use("/" , Routes);
+app.use("/", Routes);
 
 module.exports = app 
