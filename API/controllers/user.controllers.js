@@ -69,8 +69,8 @@ const Login = async (req, res) => {
     try {
         const user = await USER_MODEL.findOne({ phone, password })
         res.status(200).json({
-            success: true,
-            data:!!user,
+            success:  !!user,
+            data: user,
             message: "You have successfully logged in"
         })
     }
