@@ -1,5 +1,3 @@
-
-const { message } = require("statuses")
 const USER_MODEL = require("../models/user.model")
 
 const createUser = async (req, res) => {
@@ -13,8 +11,7 @@ const createUser = async (req, res) => {
 
         })
         res.status(200).json({
-            success: true,
-            message: "user created",
+            success: true, message: "user created",
             data: user,
         })
     }
@@ -69,18 +66,20 @@ const Login = async (req, res) => {
     try {
         const user = await USER_MODEL.findOne({ phone, password })
         res.status(200).json({
-            success:  !!user,
+            success: !!user,
             data: user,
-            message: "You have successfully logged in"
+            message: user && "You have successfully logged in"
         })
     }
     catch (error) {
+        console.log(error.message);
         res.status(400).json({
             success: false,
             error: error.name,
             message: error.message
-
         })
+
+
     }
 }
 const updateuser = async (req, res) => {

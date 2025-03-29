@@ -13,7 +13,11 @@ mongoose.connection.on("connected", () => {
   console.log("mongo connected");
 });
 
-app.get("/user", (res, req) => {
+app.get("/", (req, res) => {
+  res.status(200).json({ live: true })
+})
+
+app.get("/user", (req, res) => {
   res.status(200).json({ live: true })
 })
 
